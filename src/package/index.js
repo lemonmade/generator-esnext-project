@@ -98,10 +98,10 @@ module.exports = class EsnextProjectGenerator extends BaseGenerator {
   }
 
   writing() {
-    let {fs, props} = this;
+    let {props} = this;
 
     // Re-read the content at this point because a composed generator might modify it.
-    let pkg = fs.readJSON(this.destinationPath('package.json'), {});
+    let pkg = this.fs.readJSON(this.destinationPath('package.json'), {});
 
     let packageUpdates = {
       name: _.kebabCase(props.name),
@@ -115,7 +115,7 @@ module.exports = class EsnextProjectGenerator extends BaseGenerator {
     };
 
     // Let's extend package.json so we're not overwriting user previous fields
-    fs.writeJSON('package.json', _.merge(pkg, packageUpdates));
+    this.fs.writeJSON('package.json', _.merge(pkg, packageUpdates));
   }
 };
 

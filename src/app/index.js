@@ -85,12 +85,14 @@ module.exports = class ESNextProjectGenerator extends BaseGenerator {
   get prompting() {
     return {
       start() {
-        this.log(yosay(`Welcome to the ${chalk.red('esnext-project')} generator!`));
+        if (!this.options.skipWelcomeMessage) {
+          this.log(yosay(`Welcome to the ${chalk.red('esnext-project')} generator!`));
+        }
       },
 
       projectName() {
-        let {props, fs} = this;
-        let pkg = fs.readJSON('package.json', {});
+        let {props} = this;
+        let pkg = this.fs.readJSON('package.json', {});
 
         if (props.name || pkg.name) {
           props.name = pkg.name || _.kebabCase(props.name);
@@ -262,9 +264,5 @@ module.exports = class ESNextProjectGenerator extends BaseGenerator {
         {local: require.resolve('generator-travis/generators/app')}
       );
     }
-  }
-
-  install() {
-    this.installDependencies({bower: false, skipInstall: this.options.skipInstall});
   }
 };

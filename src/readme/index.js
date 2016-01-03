@@ -59,9 +59,9 @@ module.exports = class ESNextProjectReadmeGenerator extends BaseGenerator {
   }
 
   writing() {
-    let {props, fs} = this;
+    let {props} = this;
 
-    let pkg = fs.readJSON(this.destinationPath('package.json'), {});
+    let pkg = this.fs.readJSON(this.destinationPath('package.json'), {});
 
     this.fs.copyTpl(
       this.templatePath('README.md'),
