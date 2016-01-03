@@ -28,7 +28,8 @@
     "build": "npm run clean && npm run copy && npm run build:lib",
     "preversion": "npm run clean",
     "version": "npm run build",
-    "postversion": "git push && git push --tags && npm run clean"
+    "postversion": "git push && git push --tags && npm run clean",
+    "prepublish": "npm run build"
   },
   "repository": "lemonmade/generator-esnext-project",
   "license": "MIT",
