@@ -21,11 +21,11 @@
     "test": "mocha test/ --recursive --compilers js:babel-core/register --reporter spec",
     "test:cover": "babel-node $(npm bin)/isparta cover --reporter text --reporter html $(npm bin)/_mocha test/ -- --recursive --reporter spec",
     "test:watch": "npm test -- --watch --reporter min",
-    "check": "",
+    "check": "npm run lint && npm run test",
     "copy": "cd src && copyfiles '**/*' '../generators/' && cd ..",
     "build:lib": "babel src --ignore **/templates/**.js --out-dir generators",
     "build": "npm run clean && npm run copy && npm run build:lib",
-    "preversion": "npm run clean && npm run check",
+    "preversion": "npm run clean",
     "version": "npm run build",
     "postversion": "git push && git push --tags && npm run clean",
     "prepublish": "npm run build"
