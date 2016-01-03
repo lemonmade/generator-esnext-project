@@ -1,6 +1,6 @@
 {
   "name": "generator-esnext-project",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "A Yeoman generator for creating the basics of a project using what's next in JavaScript.",
   "homepage": "",
   "author": {
@@ -9,7 +9,8 @@
     "url": " "
   },
   "files": [
-    "src"
+    "src",
+    "generators"
   ],
   "main": "src/index.js",
   "keywords": [
@@ -27,10 +28,9 @@
     "build": "npm run clean && npm run copy && npm run build:lib",
     "preversion": "npm run clean",
     "version": "npm run build",
-    "postversion": "git push && git push --tags && npm run clean",
-    "prepublish": "npm run build"
+    "postversion": "git push && git push --tags && npm run clean"
   },
-  "repository": "/generator-esnext-project",
+  "repository": "lemonmade/generator-esnext-project",
   "license": "MIT",
   "devDependencies": {
     "babel-cli": "^6.3.17",
