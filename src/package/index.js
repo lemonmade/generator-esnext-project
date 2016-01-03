@@ -116,13 +116,6 @@ module.exports = class EsnextProjectGenerator extends BaseGenerator {
 
     // Let's extend package.json so we're not overwriting user previous fields
     fs.writeJSON('package.json', _.merge(pkg, packageUpdates));
-
-    if (!fs.exists(this.destinationPath('.npmignore'))) {
-      fs.copy(
-        this.templatePath('npmignore'),
-        this.destinationPath('.npmignore')
-      );
-    }
   }
 };
 
