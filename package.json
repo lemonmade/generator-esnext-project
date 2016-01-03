@@ -1,6 +1,6 @@
 {
   "name": "generator-esnext-project",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "A Yeoman generator for creating the basics of a project using what's next in JavaScript.",
   "homepage": "",
   "author": {
