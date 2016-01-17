@@ -1,4 +1,6 @@
-# generator-esnext-project [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-image]][daviddm-url]
+# generator-esnext-project
+
+[![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-image]][daviddm-url]
 
 > A Yeoman generator for creating the basics of a project using what's next in JavaScript.
 
