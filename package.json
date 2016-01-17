@@ -2,7 +2,6 @@
   "name": "generator-esnext-project",
   "version": "0.0.7",
   "description": "A Yeoman generator for creating the basics of a project using what's next in JavaScript.",
-  "homepage": "",
   "author": {
     "name": "Chris Sauve",
     "email": "chris.sauve@shopify.com"
@@ -44,7 +43,6 @@
     "eslint-config-shopify": "^5.7.1",
     "eslint-plugin-react": "^3.13.1",
     "eslint-plugin-shopify": "^2.0.1",
-    "isparta": "^4.0.0",
     "mocha": "^2.3.4",
     "mockery": "^1.4.0",
     "rimraf": "^2.5.0",
