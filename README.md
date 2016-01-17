@@ -44,7 +44,7 @@ MIT © Chris Sauve
 
 [npm-image]: https://badge.fury.io/js/generator-esnext-project.svg
 [npm-url]: https://npmjs.org/package/generator-esnext-project
-[travis-image]: https://travis-ci.org//generator-esnext-project.svg?branch=master
-[travis-url]: https://travis-ci.org//generator-esnext-project
-[daviddm-image]: https://david-dm.org//generator-esnext-project.svg?theme=shields.io
-[daviddm-url]: https://david-dm.org//generator-esnext-project
+[travis-image]: https://travis-ci.org/lemonmade/generator-esnext-project.svg?branch=master
+[travis-url]: https://travis-ci.org/lemonmade/generator-esnext-project
+[daviddm-image]: https://david-dm.org/lemonmade/generator-esnext-project.svg?theme=shields.io
+[daviddm-url]: https://david-dm.org/lemonmade/generator-esnext-project
