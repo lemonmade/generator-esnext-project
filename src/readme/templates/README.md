@@ -3,8 +3,8 @@
 [![NPM version][npm-image]][npm-url] [![Dependency Status][daviddm-image]][daviddm-url]<% if (includeTravis) { -%> [![Build Status][travis-image]][travis-url]<% } -%><%
 if (includeCoveralls) { -%> [![Coverage percentage][coveralls-image]][coveralls-url]<% } -%>
 
-<% if (description && description.length) { %>
-> <%= description %>
+<% if (description && description.length) { -%>
+> <%- description %>
 <% } %>
 
 <% if (!content) { -%>

@@ -5,8 +5,7 @@
   "homepage": "",
   "author": {
     "name": "Chris Sauve",
-    "email": "chris.sauve@shopify.com",
-    "url": " "
+    "email": "chris.sauve@shopify.com"
   },
   "files": [
     "src",
@@ -20,7 +19,6 @@
     "clean": "rimraf generators coverage",
     "lint": "eslint . --max-warnings 0",
     "test": "mocha test/ --recursive --compilers js:babel-core/register --reporter spec",
-    "test:cover": "babel-node $(npm bin)/isparta cover --reporter text --reporter html $(npm bin)/_mocha test/ -- --recursive --reporter spec",
     "test:watch": "npm test -- --watch --reporter min",
     "check": "npm run lint && npm run test",
     "copy": "cd src && copyfiles '**/*' '../generators/' && cd ..",

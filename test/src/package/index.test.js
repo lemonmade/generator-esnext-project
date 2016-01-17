@@ -27,13 +27,6 @@ describe('generator-esnext-project:package', () => {
           .on('end', done);
       });
 
-      it('creates the required files', () => {
-        assert.file([
-          'package.json',
-          '.npmignore',
-        ]);
-      });
-
       it('fills out the package.json file', () => {
         assert.jsonFileContent('package.json', {
           name: defaultOptions.name,

@@ -18,7 +18,8 @@ describe('generator-esnext-project:readme', () => {
     description,
     githubAccount: github,
     authorName: author,
-    authorUrl: authorURL,
+    authorURL: authorURL,
+    travis: true,
     coveralls: true,
   };
 

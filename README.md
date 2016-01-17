@@ -1,5 +1,6 @@
 # generator-esnext-project [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-image]][daviddm-url]
-> 
+
+> A Yeoman generator for creating the basics of a project using what's next in JavaScript.
 
 ## Installation
 
@@ -16,6 +17,20 @@ Then generate your new project:
 yo esnext-project
 ```
 
+## What You Get
+
+The following is installed by this generator (some parts are only generated based on your responses to the prompts):
+
+```
+|-- package.json
+|-- .coveralls.yml
+|-- .editorconfig
+|-- .eslintrc
+|-- .gitattributes
+|-- .gitignore
+|-- .travis.yml
+```
+
 ## Getting To Know Yeoman
 
  * Yeoman has a heart of gold.
@@ -25,8 +40,7 @@ yo esnext-project
 
 ## License
 
-MIT © [Chris Sauve]( )
-
+MIT © Chris Sauve
 
 [npm-image]: https://badge.fury.io/js/generator-esnext-project.svg
 [npm-url]: https://npmjs.org/package/generator-esnext-project

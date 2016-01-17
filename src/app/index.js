@@ -40,6 +40,12 @@ module.exports = class ESNextProjectGenerator extends BaseGenerator {
       desc: 'The package author\'s email',
     });
 
+    this.option('authorEmail', {
+      type: String,
+      required: false,
+      desc: 'The package author\'s website',
+    });
+
     this.option('eslint', {
       type: Boolean,
       required: false,
@@ -73,6 +79,7 @@ module.exports = class ESNextProjectGenerator extends BaseGenerator {
       description: options.description,
       authorName: options.authorName,
       authorEmail: options.authorEmail,
+      authorURL: options.authorURL,
       githubAccount: options.githubAccount,
       eslint: options.eslint,
       editorconfig: options.editorconfig,
@@ -147,6 +154,13 @@ module.exports = class ESNextProjectGenerator extends BaseGenerator {
           },
 
           {
+            name: 'authorURL',
+            message: 'Package author\'s URL',
+            when: props.authorURL == null,
+            store: true,
+          },
+
+          {
             name: 'eslint',
             message: 'Include eslint config',
             type: 'confirm',
@@ -197,6 +211,7 @@ module.exports = class ESNextProjectGenerator extends BaseGenerator {
             name: 'githubAccount',
             message: 'GitHub username or organization',
             default: username,
+            store: true,
           }, (prompt) => {
             this.props.githubAccount = prompt.githubAccount;
             done();
@@ -220,7 +235,7 @@ module.exports = class ESNextProjectGenerator extends BaseGenerator {
     if (!this.fs.exists(this.destinationPath('.git'))) {
       this.composeWith(
         'node:git',
-        {options: {skipInstall, githubAccount: props.githubAccount, name: props.name}},
+        {options: {skipInstall, skipWelcomeMessage, githubAccount: props.githubAccount, name: props.name}},
         {local: require.resolve('generator-node/generators/git')}
       );
     }
@@ -228,7 +243,7 @@ module.exports = class ESNextProjectGenerator extends BaseGenerator {
     if (!pkg.license) {
       this.composeWith(
         'license',
-        {options: {name: props.authorName, email: props.authorEmail}},
+        {options: {skipInstall, skipWelcomeMessage, name: props.authorName, email: props.authorEmail, url: props.authorURL}},
         {local: require.resolve('generator-license/app')}
       );
     }
@@ -236,7 +251,7 @@ module.exports = class ESNextProjectGenerator extends BaseGenerator {
     if (!this.fs.exists(this.destinationPath('README.md'))) {
       this.composeWith(
         'esnext-project:readme',
-        {options: {...props, skipInstall, skipWelcomeMessage}},
+        {options: {...props, content: props.readme, skipInstall, skipWelcomeMessage}},
         {local: require.resolve('../readme')}
       );
     }

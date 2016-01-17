@@ -4,7 +4,7 @@ import chalk from 'chalk';
 import yosay from 'yosay';
 import parseAuthor from 'parse-author';
 
-module.exports = class EsnextProjectGenerator extends BaseGenerator {
+module.exports = class ESNextProjectPackageGenerator extends BaseGenerator {
   constructor(...args) {
     super(...args);
 
@@ -41,7 +41,7 @@ module.exports = class EsnextProjectGenerator extends BaseGenerator {
 
     this.props = {
       name: options.name || pkg.name,
-      description: options.description || pkg.description,
+      description: options.description == null ? pkg.description : options.description,
       version: pkg.version || '0.0.1',
       keywords: pkg.keywords || [],
       authorName: options.authorName || packageAuthor.name,
@@ -51,9 +51,11 @@ module.exports = class EsnextProjectGenerator extends BaseGenerator {
 
   prompting() {
     let done = this.async();
-    let {props, user} = this;
+    let {props, user, options} = this;
 
-    this.log(yosay(`Welcome to the ${chalk.red('esnext-project')} generator!`));
+    if (!options.skipWelcomeMessage) {
+      this.log(yosay(`Welcome to the ${chalk.red('esnext-project readme')} generator!`));
+    }
 
     let prompts = [
       {
@@ -87,6 +89,7 @@ module.exports = class EsnextProjectGenerator extends BaseGenerator {
       {
         name: 'keywords',
         message: 'Package keywords (comma-separated)',
+        filter: commaSeparated,
         when: props.keywords.length === 0,
       },
     ];
@@ -119,9 +122,9 @@ module.exports = class EsnextProjectGenerator extends BaseGenerator {
   }
 };
 
-function commaSeparated(words) {
+function commaSeparated(words = []) {
   if (words.constructor === Array) { return words; }
-  return words.split(/\s*,\s*/g);
+  return words.split(/\s*,\s*/g).filter((word) => word.length);
 }
 
 function getPackageAuthor(pkg) {
