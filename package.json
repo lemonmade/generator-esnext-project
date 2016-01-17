@@ -56,7 +56,7 @@
     "generator-license": "^3.0.0",
     "generator-node": "^1.8.2",
     "generator-travis": "^1.2.2",
-    "generator-eslint-config": "latest",
+    "generator-eslint-config": "^1.1.0",
     "github-username": "^2.1.0",
     "inquirer-npm-name": "^1.0.0",
     "lodash": "^3.10.1",
